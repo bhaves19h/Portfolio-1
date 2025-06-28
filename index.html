@@ -310,6 +310,7 @@
         .profile-pic {
             width: 100%;
             max-width: 300px;
+            margin-left: 10px;
             height: 300px;
             object-fit: cover;
             border-radius: 20px;
@@ -594,7 +595,13 @@
             .nav-links {
                 display: none;
             }
-
+            .section-title {
+             margin-top: 250px; /* Make less negative */
+            }
+            
+    .about-image {
+        margin-top: 2rem; /* Push image lower on mobile */
+    }
             .about-content,
             .contact-content {
                 grid-template-columns: 1fr;
@@ -1220,13 +1227,14 @@
         });
 
         // Add download resume functionality
-        function downloadResume() {
-            // Create a mock PDF download
-            const link = document.createElement('a');
-            link.href = 'bhavesh_resume.pdf';
-            link.download = 'bhavesh_resume.pdf';
-            link.click();
-        }
+   function downloadResume() {
+    const link = document.createElement('a');
+    link.href = 'https://drive.google.com/file/d/1wAwiZHc34CBHsO0-Eb0B61Ky0Li-A8ds/view?usp=drivesdk';
+    link.download = 'Bhavesh_Resume.pdf'; // This name will be suggested for saving
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
 
         // Add resume download button to hero section
         const heroContent = document.querySelector('.hero-content');
